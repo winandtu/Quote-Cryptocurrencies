@@ -1,3 +1,8 @@
+//instancio la interfaz
+
+const ui = new Interfaz();
+
+
 //leer el formulario
 
 const formulario = document.querySelector('#formulario');
@@ -20,7 +25,8 @@ function ejecutarFormulario(e){
     const cripto=obtenerCriptomoneda(e);
 
     if(coin==='' ||cripto===''){
-        console.log('faltan datos por llenar')
+        //console.log('faltan datos por llenar')
+        ui.mostrarMensaje('Ambos Campos son obligatorios', 'alert bg-danger text-center');
     }else{
         console.log('esta todo bien')
     }
