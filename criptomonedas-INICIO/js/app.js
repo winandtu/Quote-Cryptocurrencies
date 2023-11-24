@@ -1,0 +1,44 @@
+//leer el formulario
+
+const formulario = document.querySelector('#formulario');
+const moneda = document.querySelector('#moneda');
+
+const criptomoneda = document.querySelector('#criptomoneda');
+
+cargarListeners();
+
+function cargarListeners(){
+    
+    formulario.addEventListener('submit',ejecutarFormulario)
+
+}
+
+function ejecutarFormulario(e){
+    e.preventDefault();
+    //console.log('aaaa');
+    const coin=obtenerMoneda(e);
+    const cripto=obtenerCriptomoneda(e);
+
+    if(coin==='' ||cripto===''){
+        console.log('faltan datos por llenar')
+    }else{
+        console.log('esta todo bien')
+    }
+}
+
+
+function obtenerMoneda(e){
+    e.preventDefault();
+
+    const monedaSeleccionada = moneda.options[moneda.selectedIndex].value //obtengo la moneda de las opciones que hay
+    return monedaSeleccionada;
+}
+
+
+function obtenerCriptomoneda(e){
+    e.preventDefault();
+    
+    const criptoSeleccionada = criptomoneda.options[criptomoneda.selectedIndex].value;
+
+    return criptoSeleccionada;
+}
