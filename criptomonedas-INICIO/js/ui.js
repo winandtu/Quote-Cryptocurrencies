@@ -3,8 +3,28 @@
   Este es un mensaje de error centrado.
 </div>
  */
+const api = new cotizarCripto('ae4732b6373672e7d7b685ba6deb03f8b654adff296923f83c7fbf40c73b4325');
 
 class Interfaz{
+
+    //constructor iniciado
+    constructor(){
+        this.init()
+    }
+
+
+    //hago el select para las criptos en la interfaz
+
+    init(){
+        this.construirSelect();
+    }
+
+    construirSelect(){
+        api.obtenerMonedas()
+        .then(moneda=> {
+            console.log(moneda);
+        })
+    }
 
     mostrarMensaje(mensaje,clases){
         

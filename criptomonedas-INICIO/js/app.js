@@ -1,6 +1,8 @@
-//instancio la interfaz
+//instancio clases
 
 const ui = new Interfaz();
+
+
 
 
 //leer el formulario
