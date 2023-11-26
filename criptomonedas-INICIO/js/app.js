@@ -31,6 +31,13 @@ function ejecutarFormulario(e){
         ui.mostrarMensaje('Ambos Campos son obligatorios', 'alert bg-danger text-center');
     }else{
         console.log('esta todo bien')
+        //console.log(coin)
+        //console.log(cripto)
+        api.calcularPrecio(coin, cripto)
+            .then(data =>{
+                console.log(data)
+            })
+        
     }
 }
 

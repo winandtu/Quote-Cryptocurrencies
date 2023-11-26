@@ -22,7 +22,33 @@ class Interfaz{
     construirSelect(){
         api.obtenerMonedas()
         .then(moneda=> {
-            console.log(moneda);
+            //console.log(moneda.Data); //datos de la moneda
+
+            //recorrer objetos: Objetos.entries convierte en arreglos
+            //console.log(Object.entries(moneda.Data));
+            //recorrer los objetos y extraer la llave valor
+
+            const menuCripto = document.querySelector('#criptomoneda');
+            for(const [key, value] of Object.entries(moneda.Data)){
+                //console.log(value.Symbol); simbolo
+                //console.log(value.CoinName); Nombre
+                //agrego los simbolos de las monedas en las opciones del dom
+
+                const opcion = document.createElement('option'); //creo elemento de opcion
+
+                opcion.value=value.Symbol; //inicializo el valor de la opcion
+
+                //creo el texto que ira en el div
+                const textoMoneda= document.createTextNode(value.CoinName)
+                //agrego el nombre de la moneda a las opciones
+                opcion.appendChild(textoMoneda);
+                //console.log(opcion);
+
+                //agrego las opciones con su texto al DOm en el div de criptomoneda para que se vea en la interfaz:
+
+                menuCripto.appendChild(opcion);
+
+            }
         })
     }
 
@@ -45,6 +71,12 @@ class Interfaz{
         setTimeout(()=>{
             document.querySelector('.mensajes div').remove();
         },3000);
+        
+    }
+
+    mostrarResultado(){
+
+        const resultadoDiv = document.getElementById('resultado');
         
     }
 }
