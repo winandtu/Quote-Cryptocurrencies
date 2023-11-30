@@ -35,7 +35,9 @@ function ejecutarFormulario(e){
         //console.log(cripto)
         api.calcularPrecio(coin, cripto)
             .then(data =>{
-                console.log(data)
+                //console.log(data)
+                ui.mostrarResultado(data.RAW, coin, cripto );
+
             }) 
     }
 }

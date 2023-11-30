@@ -74,9 +74,26 @@ class Interfaz{
         
     }
 
-    mostrarResultado(){
+    mostrarResultado(resultado, moneda, cripto){
 
         const resultadoDiv = document.getElementById('resultado');
+
+        const resFiltrado=resultado[cripto][moneda]; //filtro la moneda y la criptomoneda
+
+        let precio= resFiltrado.PRICE.toFixed(2); //recortar digitos del precio
+        
+        let variacionDia = resFiltrado.CHANGEPCTDAY.toFixed(2);
+        console.log(resFiltrado)
+        const html = `<div class = "card bg-warning">
+                        <div class="card-body text-light">
+                            <h2 class= "card-title"> Resultado: </h2>
+                            <p>El precio de la criptomoneda ${resFiltrado.FROMSYMBOL} al precio de la moneda ${resFiltrado.TOSYMBOL} es de: $${precio}</p>
+                            <p>Variación último día: %${variacionDia}</p>
+                        </div>
+                    </div>`
+
+        resultadoDiv.innerHTML=html;
+                        
         
     }
 }
